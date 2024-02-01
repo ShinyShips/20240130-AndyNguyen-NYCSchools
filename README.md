@@ -48,17 +48,7 @@ First install packages:
 pnpm i
 ```
 
-Then, run the development server:
-
-```bash
-pnpm dev
-```
-
-For better performance:
-
-## Deployment
-
-- build command: `pnpm build`
+Then, run the serve command:
 - serve command: `pnpm serve`
 - output directory: `dist`
 
