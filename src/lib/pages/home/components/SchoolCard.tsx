@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { MapPin, Phone, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, ExternalLink, Check } from 'lucide-react';
 
 import { Badge } from "@/components/ui/badge"
 import {
@@ -14,11 +13,14 @@ import {
 import DrawerDialog from "./DrawerDialog"
 
 
-export default function SchoolCard( school : any) {
+export default function SchoolCard({ school, setCurrentSchoolList }: { school: any, setCurrentSchoolList: any }) {
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="text-left">{school?.school_name}</CardTitle>
+                <div className='flex w-full justify-between'>
+                    <CardTitle className="text-left w-fit">{school?.school_name}</CardTitle>
+                    {school.seen ? <Check className="flex w-6 h-6 ml-2 text-green-500"/> : null}
+                </div>
                 <div>
                     <div className="flex text-gray-500 pt-1">
                         <MapPin className="p-1"/>
@@ -44,7 +46,7 @@ export default function SchoolCard( school : any) {
                 <CardDescription className="text-left">{school?.overview_paragraph}</CardDescription>
             </CardContent>
             <CardFooter className="flex flex-col text-left items-start">
-                <DrawerDialog school={school}/>
+                <DrawerDialog school={school} setCurrentSchoolList={setCurrentSchoolList}/>
             </CardFooter>
         </Card>
     );

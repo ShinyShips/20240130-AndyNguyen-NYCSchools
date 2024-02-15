@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react-swc';
 import million from 'million/compiler';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -40,7 +39,6 @@ export default defineConfig({
     react(),
     checker({
       typescript: true,
-      eslint: { lintCommand: 'eslint "./src/**/*.{js,jsx,ts,tsx}"' },
     }),
     tsConfigPaths(),
     visualizer({ template: 'sunburst' }) as unknown as PluginOption,
